@@ -50,10 +50,10 @@ Route::get('/', function () {
         'posts' => Post::all()
     ]);
 });
+//tuka uf web delut posts/{post:slug}
+Route::get('posts/{post:slug}', function (Post $post) {
 
-Route::get('posts/{post}', function ($slug) {
-
-    $post = Post::findOrFail($slug);
+//    $post = Post::findOrFail($post);
     //Find a post by its slug and pass it to a view called "post"
     return view('post', [
         'post' => $post
