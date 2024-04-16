@@ -14,6 +14,7 @@ class Post extends Model
     protected $guarded = ['id'];
     //guraded e koga moze se da sa mene osven toa uf guarded-> id
 
+    protected $with = ['category', 'author'];
 
     //$guarded = [];
 
@@ -21,8 +22,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function author(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }
